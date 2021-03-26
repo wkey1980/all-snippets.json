@@ -1,0 +1,460 @@
+{
+    "Register Menu": {
+		"prefix": "MyRegisterMenuLocations",
+		"body": [
+			"<?php",
+			"function ${1:textDomain}_register_menu() {",
+			"    register_nav_menus(",
+			"        array(",
+			"            'header' => __( '${2:Header Menu}', '${1:textDomain}' ),",
+			"        )",
+			"    );",
+			"}",
+			"add_action( 'init', '${1:textDomain}_register_menu' );"
+			"?>",
+		],
+		"description": "Register Menu"
+	},
+	"Register Menu Item": {
+		"prefix": "MyRegisterMenuItem",
+		"body": [
+			"'header' => __( '${1:MenuTitle}', '${2:textDomain}' ),"
+		],
+		"description": "Register Menu Item"
+	},
+	"Basic Nav": {
+		"prefix": "myBasicNav",
+		"body": [
+			"<nav id=\"${1:idName}\" class=\"${2:className}\">",
+			"    <ul$3>",
+			"        <li$4>",
+			"            <a class=\"${5:className}\" href=\"$6\">$7</a>",
+			"        </li>",
+			"    </ul>",
+		"</nav>$8"
+		],
+		"description": "Basic Nav"
+	},
+	"Anchor Link": {
+		"prefix": "myAnchorLink",
+		"body": [
+			"<a class=\"${1:className}\" href=\"$2\">$3</a>$4"
+		],
+		"description": "Anchor Link"
+	},
+	"5 Links Nav": {
+		"prefix": "my5LinksNav",
+		"body": [
+			"<nav id=\"${1:idName}\"  class=\"${2:className}\">",
+			"    <ul class=\"$3\">",
+			"        <li class=\"$4\"><a href=\"${5:linkAddress}\">${6:linkName}</a></li>",
+			"        <li class=\"$7\"><a href=\"${8:linkAddress}\">${9:linkName}</a></li>",
+			"        <li class=\"$10\"><a href=\"${11:linkAddress}\">${12:linkName}</a></li>",
+			"        <li class=\"$13\"><a href=\"${14:linkAddress}\">${15:linkName}</a></li>",
+			"        <li class=\"$16\"><a href=\"${17:linkAddress}\">${18:linkName}</a></li>",
+			"    </ul>",
+			"</nav>"
+		],
+		"description": "5 Link Nav"
+	},
+	"WordPress Skip To Content": {
+		"prefix": "mySkipToContent",
+		"body": [
+			"    <!-- Skip to content -->",
+			"    <a class=\"skip-link screen-reader-text\" href=\"#${1:content}\">",
+			"        <?php esc_html_e( 'Skip to Content', '${2:textDomain}' ); ?>",
+			"    </a>"
+		],
+		"description": "WordPress Skip To Content"
+	},
+	"Theme 404": {
+		"prefix": "myTheme404",
+		"body": [
+			"<main id=\"${1:id}\" class=\"${2:class}\">",
+			"",
+			"    <div class=\"${3:class}\">",
+			"        <h1><?php esc_html_e( '${4:No Content Found}', '${5:textDomain}' ); ?></h1>",
+			"    </div>",
+			"",
+			"</main>"
+		],
+		"description": "Theme 404"
+	},
+	"My WordPress Header Boilerplate": {
+		"prefix": "MyWordPressHeaderBoilerplate",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"<?php language_attributes(); ?>\">",
+			"<head>",
+			"    <meta charset=\"<?php bloginfo( 'charset' ); ?>\">",
+			"    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+			"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"",
+			"    <?php wp_head(); ?>",
+			"</head>",
+			"<body <?php body_class(); ?>>",
+			"<?php wp_body_open(); ?>",
+			"",
+			"    <!-- Skip to content -->",
+			"    <a class=\"skip-link screen-reader-text\" href=\"#content\">",
+			"        <?php esc_html_e( 'Skip to Content', '${1:textDomain}' ); ?>",
+			"    </a>",
+			"",
+			"    <div id=\"page\" class=\"site\">",
+			"        <header id=\"masthead\" class=\"site-header\">",
+			"",
+			"        </header><!-- /#masthead -->",
+			"",
+			"        <main id=\"content\" class=\"site-content\">"
+		],
+		"description": "My WordPress Header Boilerplate"
+	},
+	"My WordPress Footer Boilerplate": {
+		"prefix": "MyWordPressFooterBoilerplate",
+		"body": [
+			"        </main><!-- end #content -->",
+			"",
+			"        <footer id=\"colophon\" class=\"site-footer\">",
+			"",
+			"        </footer><!-- /#colophon -->",
+			"",
+			"        <div id=\"page\" class=\"site\"><!-- /#page -->",
+			"",
+			"        <?php wp_footer(); ?>",
+			"    </body>",
+			"</html>",
+			""
+		],
+		"description": "My WordPress Footer Boilerplate"
+	},
+	"Theme Widgets Container Setup": {
+		"prefix": "myWidgetsContainer",
+		"body": [
+			"<?php",
+			"function ${1:textDomain}_widgets_init() {",
+			"    $2",
+			"}",
+			"add_action( 'widgets_init', '${1:textDomain}_widgets_init' );",
+			"?>"
+		],
+		"description": "Theme Widgets Container Setup"
+	},
+	"Theme Widgets Content": {
+		"prefix": "myWidgetsContent",
+		"body": [
+			"register_sidebar(",
+			"    array(",
+			"        'name'          => esc_html__( '${1:widgetName}', '${2:textDomain}' ),",
+			"        'id'            => '${3:widgetId}',",
+			"        'description'   => esc_html__( '${4:widgetDescription}' ),",
+			"        'before_widget' => '<section id=\"%1%s\" class=\"%2$s\">',",
+			"        'after_widget'  => '</section>',",
+			"        'before_title'  => '<h2 class=\"widget-title\">',",
+			"        'after_title'   => '</h2>',",
+			"    )",
+			");"
+		],
+		"description": "Theme Widgets Content"
+	},
+	"Register Theme Script": {
+		"prefix": "myRegisterThemeScript",
+		"body": [
+			"function ${1:textDomain}__enqueue_scripts() {",
+			"",
+			"    // Register Theme Scripts",
+			"    wp_register_script( '${2:scriptName}', ${3:textDomain}_THEME_URI . '${4:filePath}', array('${5:jquery}'), filemtime( get_template_directory() . '${4:filePath}' ), ${6:true/false}  );",
+			"",
+			"    // Enqueue Theme Scripts",
+			"    wp_enqueue_script( '${2:scriptName}' );",
+			"",
+			"}",
+			"add_action( 'wp_enqueue_scripts', '${1:textDomain}_enqueue_scripts' );"
+		],
+		"description": "Register Theme Script"
+	},
+	"Register Theme Styles": {
+		"prefix": "myRegisterThemeStyles",
+		"body": [
+			"function ${1:textDomain}__enqueue_styles() {",
+			"",
+			"    // Register Theme Styles",
+			"    wp_register_style( '${2:scriptName}', ${3:textDomain}_THEME_URI . '${4:filePath}', array('$5'), filemtime( get_template_directory() . '${4:filePath}' ), '$6' );",
+			"",
+			"    // Enqueue Theme Styles",
+			"    wp_enqueue_style( '${2:scriptName}' );",
+			"",
+			"}",
+		"add_action( 'wp_enqueue_scripts', '${1:textDomain}_enqueue_scripts' );"
+		],
+		"description": "Register Theme Styles"
+	},
+	"add_theme_support custom-header": {
+		"prefix": "myCustomHeader",
+		"body": [
+			"        $header_width  = $1;",
+			"        $header_height = $2;",
+			"        add_theme_support(",
+			"            'custom-header',",
+			"            apply_filters( '${3:textDomain}_custom_header_args',",
+			"                array(",
+			"                    'default-color' => '$4',         // Customize > Colors > Header Text Color",
+			"                    'default-image' => '$5',",
+			"                    'width'         => $header_width,",
+			"                    'height'        => $header_height,",
+			"                    'flex-width'    => ${6:true/false},",
+			"                    'flex-height'   => ${7:true/false},",
+			"                )",
+			"            )",
+			"        );"
+		],
+		"description": "add_theme_support custom-header"
+	},
+	"WordPress Loop": {
+		"prefix": "myWordPressLoop",
+		"body": [
+			"    <?php if ( have_posts() ) : ?>",
+			"",
+			"        <?php while ( have_posts() ) : the_post(); ?>",
+			"",
+			"            <article class=\"post\">",
+			"                <?php the_title(); ?>",
+			"            </article>",
+			"",
+			"        <?php endwhile ?>",
+			"",
+			"    <?php else : ?>",
+			"",
+			"        <article class=\"post error\">",
+			"            <h1 class=\"404\">No posts found</h1>",
+			"        </article>",
+			"",
+			"    <?php endif; ?>"
+		],
+		"description": "WordPress Loop"
+	},
+	"Theme Functions Basic Setup": {
+		"prefix": "myThemeFunctionsBasicSetup",
+		"body": [
+			"<?php",
+			"define( '${1:textDomain}_THEME_DIR', get_template_directory() );",
+			"define( '${1:textDomain}_THEME_URI', get_template_directory_uri() );",
+			"",
+			"if ( ! function_exists( '${2:textDomain}_setup' ) ): ",
+			"    function ${2:textDomain}_setup() {",
+			"        load_theme_textdomain( '${2:textDomain}', ${1:textDomain}_THEME_DIR . '/Languages' );",
+			"        add_theme_support( 'automatic-feed-links' );",
+			"        add_theme_support( 'title-tag' );",
+			"",
+			"        add_theme_support( 'post-thumbnails' );",
+			"        add_image_size( '${2:textDomain}-large', 500, 400, true ); // width, height, crop",
+			"",
+			"        add_theme_support( 'customize-selective-refresh-widgets' );",
+			"",
+			"        add_theme_support(",
+			"            'post-formats',",
+			"            array(",
+			"                'link',",
+			"                'aside',",
+			"                'gallery',",
+			"                'image',",
+			"                'quote',",
+			"                'status',",
+			"                'video',",
+			"                'audio',",
+			"                'chat',",
+			"            )",
+			"        );",
+			"",
+			"        add_theme_support(",
+			"            'html5',",
+			"            array(",
+			"				'comment-form',",
+			"				'comment-list',",
+			"				'gallery',",
+			"				'caption',",
+			"				'style',",
+			"				'script',",
+			"				'navigation-widgets',",
+			"            )",
+			"        );",
+			"",
+			"                // Custom header, custom background, custom logo",
+			"				$header_width  = $3;",
+			"				$header_height  = $4;",
+			"                add_theme_support(",
+			"                    'custom-header',",
+			"                    apply_filters( '${2:textDomain}_custom_header_args',",
+			"                    array(",
+			"                        'default-color' => '$5',   // Customize > Colors > Header Text Color",
+			"                        'default-image' => '$6',",
+			"                        'width'         => $header_width,",
+			"                        'height'        => $header_height,",
+			"                        'flex-height'   => ${7:true/false},",
+			"                        'flex-width'    => ${8:true/false},",
+			"                        )",
+			"                    )",
+			"                );",
+			"                add_theme_support(",
+			"                    'custom-background',",
+			"                    apply_filters(",
+			"                        '${2:textDomain}_custom_background_args',",
+			"                        array(",
+			"                            'default-color' => '$9',   // Customize > Colors > Background Color",
+			"                            'default-image' => '$10',",
+			"                        )",
+			"                    )",
+			"                );",
+			"				$logo_width  = $11;",
+			"				$logo_height  = $12;",
+			"                add_theme_support(",
+			"                    'custom-logo',",
+			"                    array(",
+			"                        'width'       => $logo_width,",
+			"                        'height'      => $logo_height,",
+			"                        'flex-width'  => ${13:true/false},",
+			"                        'flex-height' => ${14:true/false},",
+			"                        'header-text' => array( 'title-tag', 'site-description' ),",
+			"                    )",
+			"                );",
+			"",
+			"                add_theme_support( 'customize-selective-refresh-widgets' );",
+			"",
+			"    }",
+			"endif;",
+			"add_action( 'after_setup_theme', '${2:textDomain}_setup' );"
+		],
+		"description": "Theme Functions Basic Serup"
+	},
+	"PHP Tags": {
+		"prefix": "myPhp",
+		"body": [
+			"<?php",
+			"  ${1:PHP Code}",
+			"?>",
+		],
+		"description": "PHP Tags"
+	},
+	"Theme Package Name": {
+		"prefix": "myPackageName",
+		"body": [
+			"<?php",
+			"/**",
+			" * Template to display ${1:packageTitle}",
+			" * ",
+			" * ${2:packageDescription}",
+			" * ",
+			" * @package ${3:packageName}",
+			" */",
+			"?>"
+		],
+		"description": "Theme Package Name"
+	},
+	"Enqueue Stylesheet": {
+		"prefix": "MyEnqueueStylesheet",
+		"body": [
+			"<?php",
+			"function ${1:textDomain}_setup_styles() {",
+			"",
+			"    $${1:textDomain}_setup_style_ver = filemtime( get_template_directory() . '${3:filePath}' );",
+			"",
+			"    wp_enqueue_style( 'main-css', ${2:textDomain}_THEME_URI . '${3:filePath}', array($4), ${1:textDomain}_setup_style_ver, 'all' );",
+			"}",
+			"add_action( 'wp_enqueue_scripts', '${1:textDomain}_setup_styles' );",
+			"?>"
+		],
+		"description": "Enqueue Stylesheet"
+	},
+
+	"WordPress Theme Style CSS": {
+		"prefix": "myWordPressStyleHeader",
+		"body": [
+			"/*",
+			"Theme Name: $1",
+			"Theme URI: https://www.$2",
+			"Author: $3",
+			"Author URI: https://www.$4",
+			"Description: $5",
+			"Tags: $6",
+			"Version: $7",
+			"Requires at least: $8",
+			"Tested up to: $9",
+			"Requires PHP: $10",
+			"License: $11",
+			"License URI: $12",
+			"Text Domain: $13",
+			"*/"
+		],
+		"description": "WordPress Theme Style CSS"
+	},
+
+	"Comments Start": {
+		"prefix": "myCommentsStart",
+		"body": [
+			"// =======================================",
+			"// ",
+			"// ======================================="
+		],
+		"description": "commentsStart"
+	},
+	"Comments End": {
+		"prefix": "myCommentsEnd",
+		"body": [
+			"// =======================================",
+			"// END ",
+			"// ======================================="
+		],
+		"description": "commentsEnd"
+	},
+	"Global Outline": {
+		"prefix": "myGol",
+		"body": [
+			"* {",
+			"    outline: 1px solid red;",
+			"}"
+		],
+		"description": "Global Outline"
+	},
+	"SCSS Setup": {
+		"prefix": "mySetup",
+		"body": [
+			"html {",
+			"    font-size: 100%;",
+			"    box-sizing: border-box;",
+			"}",
+			"",
+			"*,",
+			"*::before,",
+			"*::after {",
+			"    box-sizing: inherit;",
+			"    margin: 0;",
+			"    padding: 0;",
+			"}",
+			"",
+			"a,",
+			"a:visited,",
+			"a:hover {",
+			"    text-decoration: none;",
+			"}"
+		],
+		"description": "SCSS Setup"
+	},
+	"Links Setup": {
+		"prefix": "myLinks",
+		"body": [
+			"a,",
+			"a:visited,",
+			"a:hover {",
+			"    text-decoration: none;",
+			"}"
+		],
+		"description": "Links Setup"
+	},
+
+	"Console Log": {
+		"prefix": "myCl",
+		"body": [
+			"console.log(${1:typeCommand})"
+		],
+		"description": "Console Log"
+	},
+}
