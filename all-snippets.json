@@ -10,8 +10,8 @@
 			"        )",
 			"    );",
 			"}",
-			"add_action( 'init', '${1:textDomain}_register_menu' );"
-			"?>",
+			"add_action( 'init', '${1:textDomain}_register_menu' );",
+			"?>"
 		],
 		"description": "Register Menu"
 	},
@@ -268,19 +268,19 @@
 			"        add_theme_support(",
 			"            'html5',",
 			"            array(",
-			"				'comment-form',",
-			"				'comment-list',",
-			"				'gallery',",
-			"				'caption',",
-			"				'style',",
-			"				'script',",
-			"				'navigation-widgets',",
+			"               'comment-form',",
+			"               'comment-list',",
+			"               'gallery',",
+			"               'caption',",
+			"               'style',",
+			"               'script',",
+			"               'navigation-widgets',",
 			"            )",
 			"        );",
 			"",
 			"                // Custom header, custom background, custom logo",
-			"				$header_width  = $3;",
-			"				$header_height  = $4;",
+			"               $header_width  = $3;",
+			"               $header_height  = $4;",
 			"                add_theme_support(",
 			"                    'custom-header',",
 			"                    apply_filters( '${2:textDomain}_custom_header_args',",
@@ -304,8 +304,8 @@
 			"                        )",
 			"                    )",
 			"                );",
-			"				$logo_width  = $11;",
-			"				$logo_height  = $12;",
+			"               $logo_width  = $11;",
+			"               $logo_height  = $12;",
 			"                add_theme_support(",
 			"                    'custom-logo',",
 			"                    array(",
@@ -323,14 +323,14 @@
 			"endif;",
 			"add_action( 'after_setup_theme', '${2:textDomain}_setup' );"
 		],
-		"description": "Theme Functions Basic Serup"
+		"description": "Theme Functions Basic Setup"
 	},
 	"PHP Tags": {
 		"prefix": "myPhp",
 		"body": [
 			"<?php",
 			"  ${1:PHP Code}",
-			"?>",
+			"?>"
 		],
 		"description": "PHP Tags"
 	},
@@ -456,5 +456,5 @@
 			"console.log(${1:typeCommand})"
 		],
 		"description": "Console Log"
-	},
+	}
 }
