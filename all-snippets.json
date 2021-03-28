@@ -70,13 +70,13 @@
 	"Theme 404": {
 		"prefix": "myTheme404",
 		"body": [
-			"<main id=\"${1:id}\" class=\"${2:class}\">",
+			"<section id=\"${1:id}\" class=\"${2:class}\">",
 			"",
 			"    <div class=\"${3:class}\">",
 			"        <h1><?php esc_html_e( '${4:No Content Found}', '${5:textDomain}' ); ?></h1>",
 			"    </div>",
 			"",
-			"</main>"
+			"</section>"
 		],
 		"description": "Theme 404"
 	},
